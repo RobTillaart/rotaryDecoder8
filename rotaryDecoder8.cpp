@@ -83,7 +83,7 @@ bool rotaryDecoder8::update()
     return false;
   }
 
- _lastValue = value;
+  _lastValue = value;
   for (uint8_t i = 0; i < _count; i++, value >>= 2)
   {
     uint8_t currentPos = (value & 0x03);
@@ -188,7 +188,7 @@ bool rotaryDecoder8::write1(uint8_t pin, uint8_t value)
 
 uint16_t rotaryDecoder8::read16()
 {
-  _wire->requestFrom(_address, (uint8_t)1);
+  _wire->requestFrom(_address, (uint8_t)2);
   uint16_t a = _wire->read();  //  MSB
   uint16_t b = _wire->read();  //  LSB
   return (a << 8) + b;
