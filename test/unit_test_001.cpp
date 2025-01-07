@@ -50,6 +50,8 @@ unittest(test_constructor)
 {
   rotaryDecoder8 RE(0x20);
 
+  Wire.begin();
+
   RE.begin(8);
   assertEqual(8, RE.getRECount());
 
@@ -58,9 +60,30 @@ unittest(test_constructor)
 }
 
 
+unittest(test_getValue)
+{
+  rotaryDecoder8 RE(0x20);
+
+  Wire.begin();
+
+  RE.begin(8);
+  for (int i = 0; i < 8; i++)
+  {
+    assertEqual(0, RE.getValue(i));
+  }
+  for (int i = 0; i < 8; i++)
+  {
+    RE.setValue(i, i * 100);
+    assertEqual(i * 100, RE.getValue(i));
+  }
+}
+
+
 unittest(test_getLastPosition)
 {
   rotaryDecoder8 RE(0x20);
+
+  Wire.begin();
 
   RE.begin(8);
   for (int i = 0; i < 8; i++)
