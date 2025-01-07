@@ -131,27 +131,29 @@ As the decoder is based upon a PCF8575, a I2C device, the performance is affecte
 clock speed of the I2C bus.
 All four core functions have one call to **read16()** which is the most expensive part.
 
-Early tests gave the following indicative times (Arduino UNO) for the **update()** 
+Early tests gave the following indicative times (Teensy 4.1) for the **update()** 
 function (with no updates it is ~8 us faster). 
 Note that above 500 KHz the gain becomes less while reliability of signal decreases.
 (500 KHz is about 3x faster than 100 KHz in practice.)
 As 400 KHz is a standard I2C clock speed it is the preferred one.
 
+Note Teensy 4.1 seems to support only some distinct speeds.
 
 |  I2C speed  |  time (us)  |  delta  |  %%   |  Notes  |
 |:-----------:|:-----------:|:-------:|:-----:|:--------|
-|   100 KHz   |             |         |       |
-|   200 KHz   |             |         |    %  |
-|   300 KHz   |             |         |    %  |
-|   400 KHz   |             |         |    %  |  preferred max
-|   500 KHz   |             |         |    %  |
-|   600 KHz   |             |         |    %  |
-|   700 KHz   |             |         |    %  |
+|   100 KHz   |     315     |         |       |
+|   200 KHz   |     290     |    25   |    %  |
+|   300 KHz   |     290     |    00   |    %  |
+|   400 KHz   |      79     |   210   |    %  |  preferred max
+|   500 KHz   |      77     |     0   |    %  |
+|   600 KHz   |      77     |     0   |    %  |
+|   700 KHz   |      77     |     0   |    %  |
+|   800 KHz   |      77     |     0   |    %  |
 
 
-At 400 KHz it can update 8 rotary encoders in ~200us. 
+At 400 KHz it can update 8 rotary encoders in ~80us. 
 At a 50% update percentage this implies a max of about 
-2500 **update()** calls per second in theory.
+5000++ **update()** calls per second in theory.
 **to be tested in practice**
 
 Note that a high speed drill goes up to 30000 RPM = 500 RPS = 2000 interrupts per second, 
