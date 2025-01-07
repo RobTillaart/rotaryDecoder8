@@ -198,8 +198,8 @@ uint16_t rotaryDecoder8::read16()
 bool rotaryDecoder8::write16(uint16_t bitmask)
 {
   _wire->beginTransmission(_address);
-  _wire->write(bitmask >> 8);    //  MSB
   _wire->write(bitmask & 0xFF);  //  LSB
+  _wire->write(bitmask >> 8);    //  MSB
   return (_wire->endTransmission() == 0);
 }
 
