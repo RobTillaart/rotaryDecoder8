@@ -189,9 +189,9 @@ bool rotaryDecoder8::write1(uint8_t pin, uint8_t value)
 uint16_t rotaryDecoder8::read16()
 {
   _wire->requestFrom(_address, (uint8_t)2);
-  uint16_t a = _wire->read();  //  MSB
-  uint16_t b = _wire->read();  //  LSB
-  return (a << 8) + b;
+  uint16_t a = _wire->read();  //  LSB
+  uint16_t b = _wire->read();  //  MSB
+  return (b << 8) + a;
 }
 
 
