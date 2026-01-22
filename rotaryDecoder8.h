@@ -48,7 +48,7 @@ public:
   uint8_t  read1(uint8_t pin);
   bool     write1(uint8_t pin, uint8_t value);
   uint16_t read16();
-  bool     write16(uint16_t bitmask);
+  bool     write16(uint16_t bitMask);
 
 
   //  DEBUG
