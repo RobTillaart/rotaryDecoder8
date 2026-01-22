@@ -30,8 +30,8 @@ volatile bool flag = false;
 void moved()
 {
   //  adjust if mechanical rotary encoder gives e.g. 4 pulses per tick 
-  //  see issue #5)
-  const int RQ_PULSES_PER_TICK = 1;
+  //  see issue #5
+  const int IRQ_PULSES_PER_TICK = 1;
   static int count = 0;
   count++;
   if (count == IRQ_PULSES_PER_TICK)
