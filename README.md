@@ -184,7 +184,7 @@ assuming 4 pulses == 360°. (not tested)
 
 ## Interrupts
 
-The PCF8574 has an INT pin which can be used to detect movement of one
+The PCF8575 has an INT pin which can be used to detect movement of one
 of the connected rotary encoders. 
 In issue #5 (rotaryDecoder8) it became clear that some (mechanical) rotary 
 encoders can give more than one pulse per tick. 
