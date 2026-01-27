@@ -207,6 +207,11 @@ In a scenario with 2 RE's, one could e.g. have only 7 interrupts instead of 8.
 To guarantee the capture of every change one has to set the pulses to tick ratio 
 to 1. This causes extra reads (== time/overhead) that show no movement.
 
+Note that if other devices e.g. switches are connected to the PCF8575, 
+there can be additional interrupts generated.
+In such scenario setting the pulse to tick ratio to 1 is also the safest 
+way to capture all changes.
+
 
 ## Future
 
