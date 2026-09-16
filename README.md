@@ -101,9 +101,9 @@ Returns true if the PCF8575 address is found on the I2C bus.
 convenience e.g. for for loops.
 - **void reset()** reset all internal counters to 0.
 Reads the device to update the last state.
-- **void reset(uint8_t re)** reset one rotary encoder counter to 0.
+- **bool reset(uint8_t re)** reset one rotary encoder counter to 0.
 Reads the device to update the last state.
-If re is out of range, nothing is changed.
+If re is out of range, false is returned, nothing is changed.
 
 
 ### Core functions
